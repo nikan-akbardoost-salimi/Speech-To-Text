@@ -4,7 +4,7 @@ let recognition;
 try {
   recognition = new recognitionSvc();
 } catch(error) {
-  document.getElementById('transcription').innerHTML = `<p>This browser does not support speech recognition API. Please, use another one (Google Chrome recommended)</p>`;
+  document.getElementById('transcription').innerHTML = `This browser does not support speech recognition API. Please, use another one (Google Chrome recommended)`;
 }
 
 document.querySelector('#start').addEventListener('click', ()=>{
