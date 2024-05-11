@@ -1,0 +1,267 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 100vh;
+    background-color: black;
+    color: white;
+}
+/* tooltip settings 👇 */
+
+.copy, .record {
+    /* button */
+    --button-bg: #353434;
+    --button-hover-bg: #464646;
+    --button-text-color: #CCCCCC;
+    --button-hover-text-color: #8bb9fe;
+    --button-border-radius: 10px;
+    --button-diameter: 36px;
+    --button-outline-width: 1px;
+    --button-outline-color: rgb(141, 141, 141);
+    /* tooltip */
+    --tooltip-bg: #f4f3f3;
+    --toolptip-border-radius: 4px;
+    --tooltip-font-family: Menlo, Roboto Mono, monospace;
+    /* 👆 this field should not be empty */
+    --tooltip-font-size: 12px;
+    /* 👆 this field should not be empty */
+    --tootip-text-color: rgb(50, 50, 50);
+    --tooltip-padding-x: 7px;
+    --tooltip-padding-y: 7px;
+    --tooltip-offset: 8px;
+    /* --tooltip-transition-duration: 0.3s; */
+    /* 👆 if you need a transition, 
+    just remove the comment,
+    but I didn't like the transition :| */
+  }
+  .record{
+    background-color: red !important;
+    width: 65px !important;
+    height: 65px !important;
+  }
+  .center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .record svg{
+    fill:white !important;
+    width: 35px !important;
+    height: 35px !important;
+  }
+  .copy, .record {
+    box-sizing: border-box;
+    width: var(--button-diameter);
+    height: var(--button-diameter);
+    border-radius: var(--button-border-radius);
+    background-color: var(--button-bg);
+    color: var(--button-text-color);
+    border: none;
+    position: relative;
+    outline: none;
+  }
+  
+  .tooltip {
+    position: absolute;
+    opacity: 0;
+    visibility: 0;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font: var(--tooltip-font-size) var(--tooltip-font-family);
+    color: var(--tootip-text-color);
+    background: var(--tooltip-bg);
+    padding: var(--tooltip-padding-y) var(--tooltip-padding-x);
+    border-radius: var(--toolptip-border-radius);
+    pointer-events: none;
+    transition: all var(--tooltip-transition-duration) cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .tooltip::before {
+    content: attr(data-text-initial);
+  }
+  
+  .tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: calc(var(--tooltip-padding-y) / 2 * -1);
+    width: var(--tooltip-padding-y);
+    height: var(--tooltip-padding-y);
+    background: inherit;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    z-index: -999;
+    pointer-events: none;
+  }
+  
+  .copy svg, .record svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .checkmark {
+    display: none;
+  }
+  
+  /* actions */
+  
+  .copy:hover .tooltip,
+  .copy:focus:not(:focus-visible) .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: calc((100% + var(--tooltip-offset)) * -1);
+  }
+  
+  .copy:focus:not(:focus-visible) .tooltip::before {
+    content: attr(data-text-end);
+  }
+  
+  .copy:focus:not(:focus-visible) .clipboard {
+    display: none;
+  }
+  
+  .copy:focus:not(:focus-visible) .checkmark {
+    display: block;
+  }
+  
+  .copy:hover,
+  .copy:focus {
+    background-color: var(--button-hover-bg);
+  }
+  
+  .copy:active {
+    outline: var(--button-outline-width) solid var(--button-outline-color);
+  }
+  
+  .copy:hover svg {
+    color: var(--button-hover-text-color);
+  }
+  
+
+  .record:hover .tooltip,
+  .record:focus:not(:focus-visible) .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: calc((100% + var(--tooltip-offset)) * -1);
+  }
+  
+  .record:focus:not(:focus-visible) .tooltip::before {
+    content: attr(data-text-end);
+  }
+  
+  .record:focus:not(:focus-visible) .clipboard {
+    display: none;
+  }
+  
+  .record:focus:not(:focus-visible) .checkmark {
+    display: block;
+  }
+  
+  .record:hover,
+  .record:focus {
+    background-color: var(--button-hover-bg);
+  }
+  
+  .record:active {
+    outline: var(--button-outline-width) solid var(--button-outline-color);
+  }
+  
+  .record:hover svg {
+    color: var(--button-hover-text-color);
+  }
+  
+  .result {
+    position: relative;
+    width: 490px;
+    height: 254px;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 12px;
+    gap: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .result::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -5px;
+    margin: auto;
+    width: 200px;
+    height: 264px;
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
+    z-index: -10;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .result::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+    transform: translate3d(0, 0, 0) scale(0.95);
+    filter: blur(20px);
+  }
+  
+  .heading {
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: 700;
+  }
+  
+  .result p:not(.heading) {
+    font-size: 14px;
+  }
+  
+  .result p:last-child {
+    color: #e81cff;
+    font-weight: 600;
+  }
+select{
+    background-color: rgb(34, 31, 31);
+    color:white;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+input[type=text]:focus, select:focus {
+    border: 3px solid red;
+}
+input[type=text]::placeholder,textarea::placeholder{
+    color:white;
+}
+textarea{
+  background-color: transparent !important;
+  border-color: white 1px solid !important;
+  color:white  !important;
+  resize: none;
+  height: 250px;
+  width: 480px;
+}
+textarea:focus{
+  border: white 1px solid;
+}
+textarea::placeholder{
+  color:white !important;
+}
+@media screen and (max-width: 800px) {
+  .result {
+    width: 190px;
+    height: 254px;
+  }
+  textarea{
+    width: 180px;
+    height: 254px;
+  }
+}
