@@ -11,16 +11,16 @@
         <h1 class="center">گفتار به متن</h1>
         <div>
             <select name="lang" id="lang" class="center">
-              <option disabled selected>زبان مدنظر خود را انتخاب کنید</option>
-              <option value="fa-IR" id="fa-IR">فارسی</option>
-              <option value="en-GB" id="en-GB">انگلیسی - GB</option>
-              <option value="en-US" id="en-US">انگلیسی - US</option>
+              <option disabled selected>STT-Language:</option>
+              <option value="fa-IR" id="fa-IR">Persian</option>
+              <option value="en-GB" id="en-GB">Engilsh(GB)</option>
+              <option value="en-US" id="en-US">English(US)</option>
             </select>
         </div>
         <br />
         <div>  
           <span id="tooltip" class="init"><button id="start" title="record" class="record center">
-            <span data-text-end="" data-text-initial="شروع ضبط" class="tooltip"></span>
+            <span data-text-end="" data-text-initial="start" class="tooltip"></span>
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-400q-50 0-85-35t-35-85v-240q0-50 35-85t85-35q50 0 85 35t35 85v240q0 50-35 85t-85 35Zm0-240Zm-40 520v-123q-104-14-172-93t-68-184h80q0 83 58.5 141.5T480-320q83 0 141.5-58.5T680-520h80q0 105-68 184t-172 93v123h-80Zm40-360q17 0 28.5-11.5T520-520v-240q0-17-11.5-28.5T480-800q-17 0-28.5 11.5T440-760v240q0 17 11.5 28.5T480-480Z"/></svg>
               <svg xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="18" width="18" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" class="checkmark">
@@ -37,7 +37,7 @@
             <textarea id="transcription" title="copy" class="transcription center" readonly>
             </textarea>
             <span id="tooltip" class="init"><button class="copy">
-                <span data-text-end="کپی شد!" data-text-initial="کپی" class="tooltip"></span>
+                <span data-text-end="copied" data-text-initial="copy" class="tooltip"></span>
                 <span>
                     <svg xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 6.35 6.35" y="0" x="0" height="20" width="20" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" class="clipboard">
                         <g>
